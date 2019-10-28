@@ -11,7 +11,10 @@ add_action('admin_init', function () {
 # Add Google Maps callback
 add_action('wp_footer', function () {
 	if ($key = \Sleek\Settings\get_setting('google_maps_api_key')) {
-		echo "<script>
+		?>
+		<script>
+			SLEEK_GOOGLE_MAPS_API_KEY = '<?php echo $key ?>';
+
 			window.gmAsyncInit = function () {};
 
 			function gmInit (cb) {
@@ -27,7 +30,8 @@ add_action('wp_footer', function () {
 					};
 				}
 			}
-		</script>";
+		</script>
+		<?php
 	}
 });
 
