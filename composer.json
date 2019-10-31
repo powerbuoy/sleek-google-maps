@@ -11,6 +11,6 @@
         "files": ["sleek-google-maps.php"]
     },
     "require": {
-        "powerbuoy/sleek-settings": "dev-master"
+        "powerbuoy/sleek-settings": "^0.0.0"
     }
 }
