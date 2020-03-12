@@ -23,8 +23,8 @@ add_action('wp_footer', function () {
 # Include google maps JS api
 add_action('wp_enqueue_scripts', function () {
 	if ($key = \Sleek\Settings\get_setting('google_maps_api_key')) {
-		wp_register_script('google_maps', 'https://maps.googleapis.com/maps/api/js?key=' . $key . '&callback=googleMapsInit', [], null, true);
-		wp_enqueue_script('google_maps');
+		wp_register_script('sleek_google_maps', 'https://maps.googleapis.com/maps/api/js?key=' . $key . '&callback=googleMapsInit', [], null, true);
+		wp_enqueue_script('sleek_google_maps');
 	}
 }, 99); # NOTE: Include Maps after other JS so the googleMapsInit callback exists
 
