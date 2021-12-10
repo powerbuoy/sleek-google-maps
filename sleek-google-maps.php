@@ -4,7 +4,7 @@ namespace Sleek\GoogleMaps;
 ####################
 # Add settings field
 add_action('admin_init', function () {
-	\Sleek\Settings\add_setting('google_maps_api_key', 'text', __('Google Maps API Key', 'sleek'));
+	\Sleek\Settings\add_setting('google_maps_api_key', 'text', __('Google Maps API Key', 'sleek_admin'));
 });
 
 ##########################
