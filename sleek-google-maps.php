@@ -23,10 +23,13 @@ add_action('wp_footer', function () {
 # Include google maps JS api
 add_action('wp_enqueue_scripts', function () {
 	if ($key = \Sleek\Settings\get_setting('google_maps_api_key')) {
-		$url = 'https://maps.googleapis.com/maps/api/js?key=' . $key . '&callback=googleMapsInit';
+		$url = 'https://maps.googleapis.com/maps/api/js?key=' . $key . '&loading=async&callback=googleMapsInit';
 		$url = apply_filters('sleek/google_maps/js_api_url', $url);
 
-		wp_register_script('sleek_google_maps', $url, ['sleek'], null, true);
+		wp_register_script('sleek_google_maps', $url, ['sleek'], null, [
+			'in_footer' => true,
+			'strategy' => 'async'
+		]);
 		wp_enqueue_script('sleek_google_maps');
 	}
 });
